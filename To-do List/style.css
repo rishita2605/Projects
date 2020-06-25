@@ -1,0 +1,409 @@
+﻿*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+
+}
+.one {
+    display: flex;
+    margin-left: 6.2vw;
+    margin-top: 5.79629vh;
+    font-size: 2em;
+    font-weight: 700;
+
+}
+.name{
+    height:inherit;
+    width:10vw;
+    outline:none;
+    border:none;
+    background-color:rgba(0,0,0,0);
+    text-decoration-line:underline;
+    font-size:inherit;
+
+}
+.title {
+    margin-left: 6.1979vw;
+    margin-top: 3.79629vh;
+    font-size: 2.5em;
+    font-weight: 700;
+    text-shadow: 9px 9px 50px rgb(0,0,0);
+}
+
+
+.todo-input {
+    width: 23.78125vw;
+    height: 7.1667vh;
+    outline: none;
+    border-radius: 5px 0 0 5px;
+    border-color: rgba(0,0,0,0);
+    background-color: rgba(255,255,255,0.7);
+    margin-top: 21.11vh;
+    margin-left: 5.3125vw;
+    margin-right: 0;
+    padding-left: 5px;
+    font-size: 1.2em;
+    overflow-wrap:break-word;
+    word-wrap:break-word;
+
+    
+}
+.todo-button {
+    border-radius: 0 5px 5px 0;
+    background-color: rgba(0,0,0,0.7);
+    color:white;
+    cursor:pointer;
+    outline: none;
+    height: 7.1667vh;
+    width: 3vw;
+    margin-left: 2px;
+    border-color: rgba(0,0,0,0);
+    transform:scale(1);
+ 
+}
+    .todo-button:hover {
+        background-color: rgba(200,200,200,0.2);
+        transition:all 500ms ease-out;
+    }
+
+    .todo-button:active {
+        transform: scale(0.8);
+        transition: all 500ms ease-out;
+    }
+
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    background-image: url("compressed.jpg"), linear-gradient(rgb(21, 17, 76),rgb(11, 7, 36));
+    background-color: rgb(9,12,12);
+    background-attachment:fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: rgb(250, 241, 241);
+    grid-template-columns: 41.3541vw 58.6459vw;
+    font-family: 'Roboto', sans-serif;
+    overflow-x:hidden;
+}
+.left-rect {
+    background-color:rgba(0, 0, 0,0.7);
+    height: 100vh;
+    position: fixed;
+    width: 41.3541vw;
+    
+}
+
+.right-rect {
+    position: relative;
+    left: 41.3541vw;
+   
+}
+
+.init-text {
+    opacity: 1;
+    margin-top: 2.9629vh;
+    margin-left: 6.1979vw;
+    text-shadow: 20px 20px 50px rgb(0,0,0);
+}
+
+.hier-1{
+    font-size:2em;
+}
+
+.hier-2 {
+    height: 2vh;
+    font-size:1.1em;
+    margin-left:0.3vw;
+}
+
+
+.fa-trash, .fa-check {
+    pointer-events: none; /*basically cannot click on this anymore*/
+    color:white;
+    /*
+        if we do not add this, an event is performed only when the button is clicked(part surrounding the icon)
+        event is not performed when we click on the icon
+    */
+}
+.fa-plus{
+    font-size:1.5em;
+}
+.todo-list {
+    list-style-type: none;
+    transition: all 500ms ease-out;
+   
+}
+
+.todo-container {
+    position: relative;
+    margin-left: 6.1979vw;
+    width: 44.09479vw;
+    overflow: hidden;
+    margin-top: 5.833vh;
+    display: flex;
+    flex-direction: column;
+    transition: all 500ms ease-out;
+    
+}
+
+.todo {
+    height: 12.037vh;
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 2px;
+    display: flex;
+    margin-bottom: 3vh;
+    transition: all 800ms ease-in;
+}
+.todoli {
+    position: absolute;
+    padding-top: 2.5vh;
+    padding-left:1vw;
+    font-family: 'Roboto', sans-serif;
+    font-weight:400;
+    font-size:1.2em;
+}
+
+.checked-btn {
+    display: flex;
+    height: 7vh;
+    width: 7vh;
+    background-color: rgba(0,0,0,0);
+    border-radius: 50%;
+    margin-left: 35.0453vw;
+    padding: 2.4vh;
+    margin-top: 2.5vh;
+    border-style: solid;
+    border-color: white;
+    cursor: pointer;
+    transition: all 200ms ease-in;
+    transform: scale(1);
+    outline: none;
+}
+
+.deleted-btn {
+    display: flex;
+    height: 7vh;
+    width: 7vh;
+    background-color: rgba(0,0,0,0);
+    border-radius: 50%;
+    padding: 2.4vh;
+    margin-top: 2.5vh;
+    margin-left: 1vw;
+    border-style: solid;
+    border-color: white;
+    transition: all 200ms ease-in;
+    cursor: pointer;
+    outline: none;
+}
+
+.checked-btn:hover {
+    background-color:rgba(200,200,200,0.4);
+    transition: all 200ms ease-in;
+}
+.deleted-btn:hover {
+    background-color: rgba(200,200,200,0.4);
+    transition: all 200ms ease-in;
+}
+
+.checked-btn:active,.deleted-btn:active {
+    transition: all 200ms ease-out;
+    transform: scale(0.8);
+    outline: none;
+}
+.completed li{
+    text-decoration:line-through;
+    opacity:0.8;
+}
+
+.fall {
+    
+    transition:all 900ms ease-out;
+    opacity: 0;
+
+}
+/*
+
+    .dropdown {
+    
+    outline:none;
+    border-color:rgba(0,0,0,0);
+    -webkit-appearance:button;
+    border-radius:5px;
+}
+
+
+
+    .dropdown::before {
+        content:"";
+        position: absolute;
+        height: 7.1667vh;
+        background-color: rgb(8, 8, 8);
+        width:3vw;
+    }
+
+
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance:none;
+    outline: none;
+    border: none;
+    height: 7.1667vh;
+    width: 26.89125vw;
+    cursor: pointer;
+    border-radius:5px;
+    opacity:0.9;
+    padding:1rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:1.2em;
+    
+}
+
+.selectdiv {
+    margin-left: 5.3125vw;
+    margin-top: 15.6481vh;
+    overflow: hidden;
+    position: relative;
+}
+option{
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    
+    background-color:rgba(0,0,0,0.8);
+    color:rgb(255,255,255);
+    outline:none;
+    border-color:rgba(0,0,0,0);
+    transition: background-color,color 500ms ease-in;
+    border-radius:5px;
+}
+
+.opt:hover{
+    background-color:rgba(255,255,255,0.8);
+    color:black;
+}
+*/
+
+/*.selectdiv::after{
+    content:"\25BC";
+    position:absolute;
+    background:rgba(0,0,0,0.9);
+    top:0;
+    
+    right:0;
+    
+    padding:1rem;
+    pointer-events:none;
+
+}*/
+
+
+
+.dropbtn {
+    background-color: rgba(255,255,255,0.7);
+    color: black;
+    padding: 16px;
+    font-size: 1em;
+    font-weight:400;
+    border: none;
+    cursor: pointer;
+    height: 7.1667vh;
+    width: 26.89125vw;
+    transition: all 300ms ease-in;
+    border-radius: 5px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 5.3125vw;
+    margin-top: 15.6481vh;
+
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(250, 241, 241,0.9);
+    min-width: 160px;
+    width: 26.89125vw;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    
+}
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        
+    }
+
+        .dropdown-content a:hover {
+            background-color:rgba(200,200,200,0.8);
+            transition: all 80ms ease-in;
+        }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    
+}
+
+.dropdown:hover .dropbtn {
+    background-color: rgba(0,0,0,0.9);
+    color: rgb(255, 255, 255);
+    transition: all 400ms ease-in;
+}
+
+/* The alert message box */
+.alert {
+    position: sticky;
+    padding: 20px;
+    background-image: linear-gradient(45deg,rgb(14,72,99),rgb(42,185,209));
+    opacity: 0.8;
+    color: white;
+    margin-top: 28.185vh;
+    margin-bottom: 30.185vh;
+    margin-left: 28.11vw;
+    margin-right: 28.11vw;
+    width: 41.77vw;
+    height: 20.27vh;
+    display: flex;
+}
+
+/* The close button */
+/*.closebtn {
+    background-color:rgba(0,0,0,0);
+    outline:none;
+    border:none;
+    position:static;
+    margin-left: 100px;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    /* When moving the mouse over the close button 
+    .closebtn:hover {
+        color: red;
+    }
+    */
+.footer:active .footer:visited .footer:link{
+    text-decoration:none;
+}
+.footer{
+    text-decoration:none;
+    color:white;
+    background-color:rgba(0,0,0,0.6);
+    position:absolute;
+    justify-self:flex-end;
+    margin:1em;
+    margin-top:33vh;
+    opacity:0.6;
+}

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta viewport content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/505cb8a6b1.js" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+
+    <title>To Dooooooo</title>
+</head>
+<body>
+    <div class="left-rect">
+        <div class="one">
+            <!input type="text" class="name" placeholder="Name"/><p>Rishita's To-Do List</p>
+        </div>
+        <!--div class="alert">
+        <p>This is an alert box.
+        <button class="closebtn">&times;</button>
+        </p>
+
+    </!-div-->
+        <form>
+            <input type="text" class="todo-input" placeholder="Enter the task here..." maxlength="50" required>
+            <button type="submit" class="todo-button">
+                <i class="fas fa-plus"></i>
+            </button>
+        </form>
+        <!--div-- class="selectdiv">
+        <select class="filter">
+            <option class="opt" value="all">All tasks</option>
+            <option class="opt" value="completed">Completed Tasks</option>
+            <option class="opt" value="uncompleted">Tasks to be completed</option>
+        </select>
+    </!--div-->
+        <div class="dropdown">
+            <button class="dropbtn">All Tasks</button>
+            <div class="dropdown-content">
+                <a href="#" id="all">All tasks</a>
+                <a href="#" id="comp">Completed Tasks</a>
+                <a href="#" id="incomp">Tasks to be completed</a>
+            </div>
+        </div>
+
+        <div class="vertical-line"></div>
+        <a class="footer" href="https://unsplash.com/photos/ODjh4MU7JrE" target="_blank">Photo by <i>Z S </i> on <u>Unsplash</u></a>
+    </div>
+    
+    <div class="right-rect">
+        <p class="title">Tasks</p>
+        <div class="init-text">
+            <p class="hier-1">There are no tasks yet...</p>
+            <p class="hier-2">Click on + button to add tasks</p>
+        </div>
+        
+        <div class="todo-container">
+            <ul class="todo-list">
+            </ul>
+        </div>
+    </div>
+    
+    <script src="todo.js"></script>
+</body>
+</html>
