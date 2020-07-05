@@ -1,0 +1,234 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    font-family: 'Libre Baskerville', serif;
+}
+
+.cont{
+
+    background:url("background-5.jpeg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height:100vh;
+    background-size: 100% 100%;
+    
+}
+.content{
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    height:70vh;
+    margin-top:15vh;
+    margin-bottom: 15vh;
+    padding-left:4rem;
+    padding-right:4rem;
+    padding-top:3rem;
+    background-color: rgba(255,255,255,0.8);
+
+}
+/*start of field animation*/
+/*
+    NOTE: We cannot add after to input, hence we need to do all of this i.e. add after to label
+    (we can only add after to elements which can have content eg: <p> <label> <span>
+*/
+$height-field: 3rem;
+$font-size-custom: 1rem;
+$before-color: rgba(88, 36, 40,0.7);
+$after-color: rgba(88, 36, 40,1);
+$width-field:24rem;
+
+
+@mixin removeStyle(){
+    outline:none;
+    background: transparent;
+    text-decoration:none;
+    border:none;
+}
+
+
+.field-1{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width:$width-field;
+    height:$height-field;
+    overflow: hidden;
+    
+    margin-top:1vh;
+    
+}
+.field-1 input{
+    @include removeStyle();
+    font-size:$font-size-custom - $font-size-custom/10;
+    height: 100%;
+    width:100%;
+    padding-top: $height-field - $font-size-custom;
+        &:focus + .label-name .content-name, &:valid + .label-name .content-name{
+            /* :valid ensures that when input text is added and the focus is shifted somwehere else
+            the label doesn't come back to its initial position*/
+            color:$after-color;
+            font-size:$font-size-custom - $font-size-custom/10;           
+            transform: translateY(-100%);
+        }
+    
+    
+}
+
+.field-1 label{
+    @include removeStyle();
+    position: absolute;
+    display: flex;
+    pointer-events: none;
+    width:100%;
+    height:$height-field;
+    left:0;
+    top:0px;
+    bottom:0px;
+    border-bottom: 2px solid $before-color;
+    color:$before-color;
+        &::after{
+            content: "";
+            position: absolute;
+            width:100%;
+            height: 100%;
+            border-bottom: 2px solid $after-color;
+            left:0;
+            bottom:-2px;
+            transform: translateX(-100%);
+            
+            /*Moving the blue line out of frame initially also, 
+            since overflow is not hidden it is visible on the frame when overflow:hidden; 
+            not applied to parent*/
+            transition: transform 500ms ease;
+        }
+
+}
+
+.content-name{
+    position: absolute;
+    left:0px;
+    bottom: -1px;
+    transition: all 500ms ease;
+    font-size: $font-size-custom;
+    
+}
+
+.field-1 input:focus + .label-name::after, .field-1 input:valid + label::after{
+    transform:translateX(0%);
+    border-color: $after-color;
+    
+    
+}
+/*end of field animation*/
+
+
+a,a:link, a:visited, a:any-link, a:hover{
+    @include removeStyle();
+    font-size:$font-size-custom - $font-size-custom/10;
+    color: $after-color;
+}
+.tnclink{
+    display: flex;
+    flex-direction: row;
+    margin-top: 1em;
+    margin-left:0.9em;
+}
+.circle{
+    @include removeStyle();
+    position: relative;
+    height:0.9em;
+    width: 0.9em;
+    border-radius:70%;
+    border:2px solid $after-color;
+    margin:3px;
+    transform: scale(1.1);
+    &:focus{
+        outline:none;
+    }
+    transition: all 200ms ease;
+
+    
+}
+
+
+/*
+.hvr-outline-out {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    position: relative;
+    border-radius:70%;
+  }
+  .hvr-outline-out:before {
+    content: '';
+    position: absolute;
+    border:2px solid $after-color;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: top, right, bottom, left;
+    transition-property: top, right, bottom, left;
+    border-radius:70%;
+  }
+  .hvr-outline-out:hover:before, .hvr-outline-out:focus:before, .hvr-outline-out:active:before {
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+    
+  }
+  */
+
+  .signup{
+      @include removeStyle();
+      height:$height-field;
+      width: $width-field;
+      background-image: linear-gradient(270deg,rgb(212, 71, 69),rgb(247, 142, 121));
+      border-radius: 50px;
+      color:white;
+      font-family: 'Pacifico', cursive;
+      margin-top: 2em;
+      font-size: 1.2em;
+      position:absolute;
+      /*&:focus{
+          outline: 2px solid rgba(88, 36, 40,1);
+          -moz-outline-radius: 50px;
+          -webkit-outline-radius:50px;
+          outline-offset: 2px;
+      }*/
+      transition: all 300ms ease;
+      &:focus{
+        outline:none;
+    
+        box-shadow: 0 -2px 0 rgb(88, 36, 40), -2px 0 0 rgb(88, 36, 40), 2px 0 0 rgb(88, 36, 40), 0 2px 0 rgb(88, 36, 40);
+      }
+      &:active{
+          transform:scale(1.05);
+      }
+
+      &:hover{
+        background-image: linear-gradient(270deg,rgb(247, 142, 121),rgb(252, 187, 174));
+        transition: all 200ms ease;
+      }
+  }
+  .title-1{
+    font-family: 'Pacifico', cursive;
+    font-size:1.6em;
+    color:$after-color;
+  }
+
+/*.text{
+    text-align: center;
+    align-self: center;
+    font-family: 'Pacifico', cursive;
+    font-size: 5em;;
+    background-image:linear-gradient(black,white);
+    background-size: cover;
+    background-clip: text;
+    color:transparent;
+}*/
